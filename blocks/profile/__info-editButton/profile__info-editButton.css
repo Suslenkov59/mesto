@@ -1,0 +1,43 @@
+.profile__info-editButton {
+    grid-column-start: 2;
+    grid-row-start: -3;
+    grid-row-end: -2;
+
+    align-self: end;
+    justify-self: end;
+
+    width: 24px;
+    height: 24px;
+
+    background: url("../../../images/penButton.svg") no-repeat;
+    background-position: center;
+    border: 1px solid #FFFFFF;
+
+    transition: opacity 0.3s ease;
+}
+
+.profile__info-editButton:hover {
+    background: url("../../../images/penButton.svg") no-repeat;
+    background-position: center;
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+    .profile__info-editButton {
+        align-self: center;
+        background: url("../../../images/penButton7.5.svg") no-repeat;
+        background-position: center;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .profile__info-editButton:hover {
+        align-self: center;
+        background: url("../../../images/penButton7.5.svg") no-repeat;
+        background-position: center;
+        width: 18px;
+        height: 18px;
+    }
+}

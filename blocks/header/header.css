@@ -1,0 +1,7 @@
+.header {
+    margin: 45px 0 40px 0;
+    height: 74px;
+
+    border-bottom: 1px solid hsla(0, 0%, 33%, 1);
+    background-clip: padding-box;
+}

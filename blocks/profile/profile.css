@@ -1,0 +1,14 @@
+.profile {
+    display: grid;
+    grid-template-columns: minmax(min-content, max-content) minmax(min-content, max-content) 1fr;
+
+    margin: 0 0 51px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .profile {
+        justify-content: center;
+        grid-template-columns: minmax(min-content, max-content);
+        grid-template-rows: repeat(3, minmax(min-content, max-content));
+    }
+}
