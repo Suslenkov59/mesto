@@ -13,9 +13,20 @@
 
     color: #FFFFFF;
 
+    border-radius: 2px;
     transition: opacity 0.3s ease;
 }
 
 .popup__button_save:hover {
     opacity: 0.8;
+}
+
+@media screen and (max-width: 520px) {
+    .popup__button_save {
+        width: 238px;
+        height: 46px;
+
+        font-size: 14px;
+        line-height: 17px
+    }
 }
