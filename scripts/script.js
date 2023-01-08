@@ -1,6 +1,6 @@
 let popup = document.querySelector(".popup");
 let openPopup = document.querySelector(".profile__info-editButton");
-let closePopup = document.querySelector(".popup__button_close");
+let closePopup = document.querySelector(".popup__button-close");
 /*для открыть закрыть*/
 let formElement = document.querySelector(".popup__form");
 let nameInput  = document.querySelector(".popup__input_name");
