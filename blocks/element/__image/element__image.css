@@ -1,4 +1,6 @@
 .element__image {
     box-sizing: border-box;
+    max-width: 282px;
+    max-height: 282px;
 }
 

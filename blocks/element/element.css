@@ -1,6 +1,6 @@
 .element {
     display: grid;
-    grid-template-rows: 282px 71px;
+    grid-template-rows: minmax(min-content, max-content) minmax(min-content, 71px);
 
 
     background: #FFFFFF;

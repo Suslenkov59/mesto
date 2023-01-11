@@ -1,4 +1,6 @@
 .footer__description {
+    margin: 0;
+
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -9,8 +11,6 @@
 
 @media screen and (max-width: 768px) {
     .footer__description {
-        font-style: normal;
-        font-weight: 400;
         font-size: 14px;
         line-height: 17px;
     }

@@ -1,16 +1,16 @@
 let popup = document.querySelector(".popup");
-let openPopup = document.querySelector(".profile__info-editButton");
+let openPopup = document.querySelector(".profile__info-editbutton");
 let closePopup = document.querySelector(".popup__button-close");
 /*для открыть закрыть*/
 let formElement = document.querySelector(".popup__form");
-let nameInput  = document.querySelector(".popup__input_name");
-let jobInput  = document.querySelector(".popup__input_job");
+let nameInput  = document.querySelector(".popup__input_type_name");
+let jobInput  = document.querySelector(".popup__input_type_job");
 let nameProfile  = document.querySelector(".profile__info-name");
 let jobProfile  = document.querySelector(".profile__info-description");
 /*редактирование профиля*/
 
 function openClosePopup () {
-    popup.classList.toggle('popup__open');
+    popup.classList.toggle('popup_open');
 }
 
 function handleFormSubmit (evt) {

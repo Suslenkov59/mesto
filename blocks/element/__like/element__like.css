@@ -7,6 +7,7 @@
     background: url("../../../images/like.svg") no-repeat;
     border: none;
     transition: opacity 0.3s ease;
+    cursor: pointer;
 }
 
 .element__like:hover {

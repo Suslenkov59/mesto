@@ -1,5 +1,9 @@
 .profile__info-description {
-    margin: 16px 0 0 0;
+    margin: 5px 0 0 0;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 
     font-style: normal;
     font-weight: 400;
@@ -11,9 +15,7 @@
 
 @media screen and (max-width: 768px) {
     .profile__info-description {
-        margin: 14px 0 0 0;
-        font-style: normal;
-        font-weight: 400;
+        margin: 6px 0 0 0;
         font-size: 14px;
         line-height: 17px;
         text-align: center;
