@@ -32,4 +32,8 @@ openPopup.addEventListener("click", () => {
 
 formElement.addEventListener('submit', handleFormSubmit);
 
-
+/*лайки*/
+const like = document.querySelector('.element__like');
+    like.addEventListener('click', function (event) {
+        event.target.classList.toggle('element__like_active');
+    });
