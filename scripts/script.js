@@ -19,7 +19,7 @@ const profileName = document.querySelector('.profile__info-name');
 const profileJob = document.querySelector('.profile__info-description');
 
 /*добавление карточки*/
-const inputTitle = formAddCard.querySelector('.popup__input_type_name_link');
+const inputTitle = formAddCard.querySelector('.popup__input_type_name-link');
 const inputLink = formAddCard.querySelector('.popup__input_type_link');
 
 /*просмотр фото*/
