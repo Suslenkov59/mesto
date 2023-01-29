@@ -1,9 +1,8 @@
 .popup__container_type_img {
-    max-width: 75vw;
     display: flex;
     flex-direction: column;
-    border-radius: 0;
-    padding: 0;
+
     gap: 10px;
-    background-color: transparent;
+
+    position: relative;
 }

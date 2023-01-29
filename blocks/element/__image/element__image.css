@@ -1,6 +1,7 @@
 .element__image {
-    box-sizing: border-box;
     width: 282px;
     height: 282px;
+    cursor: pointer;
+    object-fit: cover;
 }
 
