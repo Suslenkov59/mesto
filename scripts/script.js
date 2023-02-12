@@ -4,8 +4,8 @@ const buttonOpenAddCardForm = document.querySelector('.profile__add-button');
 const closeButtons = document.querySelectorAll('.popup__button-close');
 
 /*попапы*/
-const popupCard = document.querySelector('.popup_creatingCard');
 const popupProfile = document.querySelector('.popup_editUserData');
+const popupCard = document.querySelector('.popup_creatingCard');
 const popupImg = document.querySelector('.popup_viewImage');
 
 /*формы*/
@@ -75,12 +75,31 @@ initialCards.forEach((item) => {
 /*общая для открытия*/
 const openPopup = (popupElement) => {
     popupElement.classList.add('popup_open');
+    document.addEventListener('keydown', closeByEscape)
 };
 
 /*общая для закрытия*/
 const closePopup = (popupElement) => {
     popupElement.classList.remove('popup_open');
 };
+
+/*закрытие кликом*/
+function closeByEscape(evt) {
+    if (evt.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_open')
+        closePopup(openedPopup)
+    }
+}
+
+/*закрытие Esc*/
+const popups = document.querySelectorAll('.popup');
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (event) => {
+        if (event.target.classList.contains('popup_open')) {
+            closePopup(popup)
+        }
+    })
+});
 
 /*открытие и редактирование профиля*/
 buttonOpenEditProfileForm.addEventListener('click', () => {
@@ -122,4 +141,3 @@ closeButtons.forEach((element) => {
         closePopup(popupItem);
     });
 });
-
