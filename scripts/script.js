@@ -83,7 +83,7 @@ const closePopup = (popupElement) => {
     popupElement.classList.remove('popup_open');
 };
 
-/*закрытие кликом*/
+/*закрытие Esc*/
 function closeByEscape(evt) {
     if (evt.key === 'Escape') {
         const openedPopup = document.querySelector('.popup_open')
@@ -91,7 +91,7 @@ function closeByEscape(evt) {
     }
 }
 
-/*закрытие Esc*/
+/*закрытие кликом*/
 const popups = document.querySelectorAll('.popup');
 popups.forEach((popup) => {
     popup.addEventListener('mousedown', (event) => {
