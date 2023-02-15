@@ -30,6 +30,10 @@ const elementPopupTitle = popupImg.querySelector('.popup__name');
 const cardsContainer = document.querySelector('.elements__container');
 const cardsTemplate = document.querySelector('#elements-template').content;
 
+/*кнопки*/
+const addCardButtonEditUserData = popupProfile.querySelector('.popup__button-save');
+const addCardButtonCreatingCard = popupCard.querySelector('.popup__button-save');
+
 const createCard = (name, link) => {
     const cardElement = cardsTemplate.cloneNode(true);
     const cardImg = cardElement.querySelector('.element__image')
@@ -81,6 +85,7 @@ const openPopup = (popupElement) => {
 /*общая для закрытия*/
 const closePopup = (popupElement) => {
     popupElement.classList.remove('popup_open');
+    document.removeEventListener('keydown', closeByEscape)
 };
 
 /*закрытие Esc*/
@@ -106,6 +111,7 @@ buttonOpenEditProfileForm.addEventListener('click', () => {
     openPopup(popupProfile);
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
+    addCardButtonEditUserData.classList.add(validationConfig.inactiveButtonClass);
 });
 
 /*сохранить и закрыть*/
@@ -132,6 +138,7 @@ formAddCard.addEventListener('submit', (evt) => {
     cardsContainer.prepend(createCard(inputTitle.value, inputLink.value));
     closePopup(popupCard);
     evt.target.reset();
+    addCardButtonCreatingCard.classList.add(validationConfig.inactiveButtonClass);
 });
 
 /*общая кнопка закрыть*/

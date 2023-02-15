@@ -43,14 +43,15 @@ const setEventListeners = (formElement, validationConfig) => {
 
     toggleButtonState(inputList, buttonElement, validationConfig);
 
-    formElement.addEventListener('reset', () => {
+/*    formElement.addEventListener('reset', () => {
         setTimeout(() => {
             toggleButtonState(inputList, buttonElement, validationConfig);
         }, 0);
-    });
+    });*/
+    /*я старался реализовать эту функцию но у меня не получилось, в formElement выводил саму форму, но результата небыло ¯\_(ツ)_/¯, было бы интересно узнать как всё же её сделать*/
 
     inputList.forEach((inputElement) => {
-        inputElement.addEventListener('input', function () {
+        inputElement.addEventListener('input', () => {
             checkInputValidity(formElement, inputElement, validationConfig);
             toggleButtonState(inputList, buttonElement, validationConfig);
         });
