@@ -47,8 +47,7 @@ const setEventListeners = (formElement, validationConfig) => {
         setTimeout(() => {
             toggleButtonState(inputList, buttonElement, validationConfig);
         }, 0);
-    });*/
-    /*я старался реализовать эту функцию но у меня не получилось, в formElement выводил саму форму, но результата небыло ¯\_(ツ)_/¯, было бы интересно узнать как всё же её сделать*/
+    });*//*реализовал но доработав свой метод, боюсь не усперь с ревью и итерациями. позже еще постараюсь сделать этим способом*/
 
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
@@ -64,11 +63,7 @@ const enableValidation = (validationConfig) => {
         formElement.addEventListener('submit', function (evt) {
             evt.preventDefault();
         });
-        const fieldsetList = Array.from(formElement.querySelectorAll(validationConfig.fieldsetSelector));
-
-        fieldsetList.forEach((fieldSet) => {
-            setEventListeners(fieldSet, validationConfig);
-        });
+        setEventListeners(formElement, validationConfig);
     });
 }
 
