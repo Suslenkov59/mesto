@@ -32,22 +32,15 @@ const elementPopupTitle = popupImg.querySelector('.popup__name');
 /*добавляю шаблон через темплейт, лайк, удаление, открытие картинки*/
 const cardsContainer = document.querySelector('.elements__container');
 
-/*кнопки*/
-const addCardButtonEditUserData = popupProfile.querySelector('.popup__button-save');
-const addCardButtonCreatingCard = popupCard.querySelector('.popup__button-save');
-
 /*валидация*/
-new FormValidator(validationConfig, profileForm).enableValidationCheck();
-const renderValidationCards = function () {
-    document.querySelectorAll(validationConfig.formSelector).forEach(formElement => {
-        new FormValidator(validationConfig, formElement).enableValidationCheck();
-    })
-}
-renderValidationCards();
+const profileValidation = new FormValidator(validationConfig, profileForm);
+const newCardValidation = new FormValidator(validationConfig, cardForm);
+profileValidation.enableValidationCheck();
+newCardValidation.enableValidationCheck();
 
-
+/*открытие карочек*/
 const createCard = (data) => {
-    const card = new Card(data, '#elements-template');
+    const card = new Card(data, '#elements-template', handleOpenPopup);
     return card.generateCard();
 };
 
@@ -80,11 +73,8 @@ const popups = document.querySelectorAll('.popup')
 
 popups.forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
-        if (evt.target.classList.contains('popup_open')) {
-            closePopup(popup)
-        }
-        if (evt.target.classList.contains('popup__button-close')) {
-            closePopup(popup)
+        if ((evt.target.classList.contains('popup_open')) || (evt.target.classList.contains('popup__button-close'))) {
+            closePopup(popup);
         }
     })
 })
@@ -94,8 +84,6 @@ buttonOpenEditProfileForm.addEventListener('click', () => {
     openPopup(popupProfile);
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
-    addCardButtonEditUserData.classList.add(validationConfig.inactiveButtonClass);
-    addCardButtonEditUserData.setAttribute('disabled', '')
 });
 
 /*сохранить и закрыть*/
@@ -127,8 +115,14 @@ cardForm.addEventListener('submit', (evt) => {
     ));
     closePopup(popupCard);
     evt.target.reset();
-    addCardButtonCreatingCard.classList.add(validationConfig.inactiveButtonClass);
-    addCardButtonCreatingCard.setAttribute('disabled', '')
 });
 
-export { elementPopupImg, elementPopupTitle, openPopup, popupImg };
+function handleOpenPopup(name, image) {
+    elementPopupImg.src = image;
+    elementPopupImg.alt = name;
+    elementPopupTitle.textContent = name;
+
+    openPopup(popupImg);
+}
+
+export { handleOpenPopup };

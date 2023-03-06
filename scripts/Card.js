@@ -1,10 +1,12 @@
-import { elementPopupImg, elementPopupTitle, openPopup, popupImg  } from "./index.js"
+import { handleOpenPopup } from "./index.js"
+/*если убрать импорт, WS не может найти функцию handleOpenPopup*/
 
 export default class Card {
     constructor(data, templateSelector) {
         this._name = data.name;
         this._image = data.link;
         this._templateSelector = templateSelector;
+        this._handleOpenPopup = handleOpenPopup;
     }
 
     _getTemplate() {
@@ -34,18 +36,12 @@ export default class Card {
     }
 
     _handleDeleteCard() {
-        this._elementTrash.closest('.element').remove();
+        this._element.remove();
+        this._element = null;
     }
 
     _handleLike() {
         this._elementLike.classList.toggle('element__like_active');
-    }
-
-    _openPopup() {
-        elementPopupImg.src = this._image;
-        elementPopupTitle.textContent = this._name;
-
-        openPopup(popupImg);
     }
 
     _setEventListeners() {
@@ -57,8 +53,8 @@ export default class Card {
             this._handleDeleteCard();
         });
 
-        this._elementImage.addEventListener('click', () => {
-            this._openPopup();
+        this._elementImage.addEventListener('click', () =>{
+            this._handleOpenPopup(this._name, this._image)
         });
     }
 }
