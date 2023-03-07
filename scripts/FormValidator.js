@@ -34,12 +34,13 @@ class FormValidator {
         });
     }
 
-    _addResetEventListener() {
-        this._element.addEventListener('reset', () => {
-            setTimeout(() => {
-                this._toggleButtonState();
-            }, 0);
-        })
+    resetValidation() {
+        this._toggleButtonState();
+
+        this._inputList.forEach((inputElement) => {
+            this._hideInputError(inputElement)
+        });
+
     }
 
     _toggleButtonState() {
@@ -60,7 +61,6 @@ class FormValidator {
             inputElement.addEventListener('input', () => {
                 this._checkInputValidity(inputElement);
                 this._toggleButtonState();
-                this._addResetEventListener();
             });
         });
     }

@@ -1,8 +1,5 @@
-import { handleOpenPopup } from "./index.js"
-/*если убрать импорт, WS не может найти функцию handleOpenPopup*/
-
 export default class Card {
-    constructor(data, templateSelector) {
+    constructor(data, templateSelector, handleOpenPopup) {
         this._name = data.name;
         this._image = data.link;
         this._templateSelector = templateSelector;

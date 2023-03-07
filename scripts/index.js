@@ -81,6 +81,8 @@ popups.forEach((popup) => {
 
 /*открытие и редактирование профиля*/
 buttonOpenEditProfileForm.addEventListener('click', () => {
+    const editProfileValidator = new FormValidator(validationConfig, profileForm)
+    editProfileValidator.resetValidation();
     openPopup(popupProfile);
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
@@ -106,6 +108,8 @@ buttonOpenAddCardForm.addEventListener('click', () => {
 
 /*работа с формой для addCard*/
 cardForm.addEventListener('submit', (evt) => {
+    const addCardValidator = new FormValidator(validationConfig, cardForm)
+    addCardValidator.resetValidation();
     evt.preventDefault();
     cardsContainer.prepend(createCard(
         {
@@ -114,7 +118,6 @@ cardForm.addEventListener('submit', (evt) => {
         }
     ));
     closePopup(popupCard);
-    evt.target.reset();
 });
 
 function handleOpenPopup(name, image) {
@@ -125,4 +128,5 @@ function handleOpenPopup(name, image) {
     openPopup(popupImg);
 }
 
-export { handleOpenPopup };
+
+
