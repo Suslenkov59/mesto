@@ -81,10 +81,10 @@ popups.forEach((popup) => {
 
 /*открытие и редактирование профиля*/
 buttonOpenEditProfileForm.addEventListener('click', () => {
-    profileValidation.resetValidation();
-    openPopup(popupProfile);
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
+    openPopup(popupProfile);
+    profileValidation.resetValidation();
 });
 
 /*сохранить и закрыть*/
@@ -102,12 +102,13 @@ profileForm.addEventListener('submit', (evt) => {
 
 /*открытие и добавление карточки*/
 buttonOpenAddCardForm.addEventListener('click', () => {
+    cardForm.reset();
+    newCardValidation.resetValidation();
     openPopup(popupCard);
 });
 
 /*работа с формой для addCard*/
 cardForm.addEventListener('submit', (evt) => {
-    newCardValidation.resetValidation();
     evt.preventDefault();
     cardsContainer.prepend(createCard(
         {
@@ -125,6 +126,3 @@ function handleOpenPopup(name, image) {
 
     openPopup(popupImg);
 }
-
-
-
