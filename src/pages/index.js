@@ -1,6 +1,8 @@
-import {FormValidator} from "./FormValidator.js";
-import Card from "./Card.js";
-import {initialCards, validationConfig} from "./constants.js";
+import '../pages/index.css';
+
+import {FormValidator} from "../scripts/FormValidator.js";
+import Card from "../scripts/Card.js";
+import {initialCards, validationConfig} from "../scripts/constants.js";
 
 /*основные кнопки*/
 const buttonOpenEditProfileForm = document.querySelector('.profile__edit-button');
