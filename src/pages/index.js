@@ -11,6 +11,7 @@ import {initialCards, validationConfig} from "../utils/constants.js";
 /*основные кнопки*/
 const buttonOpenEditProfileForm = document.querySelector('.profile__edit-button');
 const buttonOpenAddCardForm = document.querySelector('.profile__add-button');
+const buttonOpenEditAvatarForm = document.querySelector('.profile__avatar-button');
 
 /*формы*/
 const profileForm = document.forms["profile-form"];
@@ -88,4 +89,17 @@ buttonOpenAddCardForm.addEventListener('click', () => {
     popupAddCard.open();
 });
 
+/*открытие и редактирование аватара*/
+const popupEditeAvatar = new PopupWithForm('.popup_editUserAvatar', {
+    /*callbackSubmitForm: () => {
+        userInfo.setUserAvatar({
+        });
+        popupEditeAvatar.close();
+    }*/
+});
+popupEditeAvatar.setEventListeners();
+
+buttonOpenEditAvatarForm.addEventListener('click', () => {
+    popupEditeAvatar.open();
+});
 
