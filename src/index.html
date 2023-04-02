@@ -78,9 +78,10 @@
     <h2 class="popup__title">Обновить аватар</h2>
     <form class="popup__form popup__form_type_profile" name="profile-form" novalidate>
       <div class="popup__field">
-        <input type="text" name="name" id="name-input1" class="popup__input popup__input_type_name"
-               placeholder="Имя" minlength="2" maxlength="40" required>
-        <span class="popup__input-error name-input-error"></span>
+        <div class="popup__field">
+          <input type="url" name="link" id="urlAvatar-input" class="popup__input popup__input_type_link"
+                 placeholder="Ссылка на картинку" required>
+          <span class="popup__input-error url-input-error"></span>
       </div>
       <button class="popup__button-save" type="submit">Сохранить</button>
     </form>

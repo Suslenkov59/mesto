@@ -7,4 +7,13 @@
     padding: 0;
     position: absolute;
     width: 120px;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.profile__avatar-button:hover {
+    opacity: 0.8;
+    background: rgba(0, 0, 0, .9) url("../../../images/avatarButton.svg") no-repeat 50%;;
+    background-position: center;
+    cursor: pointer;
 }
