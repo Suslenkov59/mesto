@@ -15,7 +15,7 @@
 .elements__container{display:grid;gap:20px 17px;grid-template-columns:repeat(auto-fit,minmax(282px,282px));justify-content:center;margin:0;padding:0}
 .element{background-color:#fff;border-radius:10px;display:grid;grid-template-rows:minmax(min-content,max-content) minmax(min-content,79px);overflow:hidden;position:relative}
 .element__delete-button{background:url(cbc09a894bdd4c956365.svg) no-repeat;border:none;cursor:pointer;height:19px;margin:0;padding:0;position:absolute;right:20px;top:20px;transition:opacity .3s ease;width:18px}.element__delete-button:hover{opacity:.5}
-.element__description{align-items:center;display:flex;height:79px;justify-content:space-between}
+.element__description{align-items:center;display:flex;height:79px;justify-content:space-between;margin:0;padding:25px 20px}
 .element__image{cursor:pointer;height:282px;-o-object-fit:cover;object-fit:cover;width:282px}
 .element__like{background:url(87ed371465c7a6a1cd01.svg) no-repeat;border:none;cursor:pointer;height:19px;margin:0 20px 0 0;transition:opacity .3s ease;width:22px}.element__like:hover{opacity:.5}
 .element__like-counter{color:#000;font-size:13px;font-weight:400;line-height:16px;margin:0;padding:0}
