@@ -17,7 +17,7 @@
 .element__delete-button{background:url(cbc09a894bdd4c956365.svg) no-repeat;border:none;cursor:pointer;height:19px;margin:0;padding:0;position:absolute;right:20px;top:20px;transition:opacity .3s ease;width:18px}.element__delete-button:hover{opacity:.5}
 .element__description{align-items:center;display:flex;height:35px;justify-content:space-between;margin:0;padding:25px 20px}
 .element__image{cursor:pointer;height:282px;-o-object-fit:cover;object-fit:cover;width:282px}
-.element__like{background:url(87ed371465c7a6a1cd01.svg) no-repeat;border:none;cursor:pointer;height:19px;margin:0 20px 0 0;transition:opacity .3s ease;width:22px}.element__like:hover{opacity:.5}
+.element__like{background:url(87ed371465c7a6a1cd01.svg) no-repeat;border:none;cursor:pointer;height:19px;margin:0 0 5px;padding:0;transition:opacity .3s ease;width:22px}.element__like:hover{opacity:.5}
 .element__like-counter{color:#000;font-size:13px;font-weight:400;line-height:16px;margin:0;padding:0}
 .element__like_active{background:url(e787eeb70bb65b7b453a.svg) no-repeat;border:none;cursor:pointer;height:19px;margin:0 20px 0 0;transition:opacity .3s ease;width:22px}
 .element__name{color:#000;font-size:24px;font-style:normal;font-weight:900;line-height:29px;margin:0;max-width:195px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:100%}
