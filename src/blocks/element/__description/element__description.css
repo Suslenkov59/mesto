@@ -2,9 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 79px;
 
     margin: 0;
     padding: 25px 20px;
-
+    height: 35px;
 }

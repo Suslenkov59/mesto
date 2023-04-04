@@ -82,6 +82,7 @@
           <input type="url" name="link" id="urlAvatar-input" class="popup__input popup__input_type_link"
                  placeholder="Ссылка на картинку" required>
           <span class="popup__input-error url-input-error"></span>
+        </div>
       </div>
       <button class="popup__button-save" type="submit">Сохранить</button>
     </form>
@@ -103,8 +104,10 @@
     <img class="element__image" src="#" alt="">
     <div class="element__description">
       <h2 class="element__name"></h2>
-      <button class="element__like" type="button"></button>
-      <p class="element__like-counter">1</p>
+      <div class="element__like-area">
+        <button class="element__like" type="button"></button>
+        <p class="element__like-counter">1</p>
+      </div>
     </div>
   </div>
 </template>
