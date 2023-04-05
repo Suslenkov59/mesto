@@ -20,7 +20,7 @@
 .element__like{background:url(87ed371465c7a6a1cd01.svg) no-repeat;border:none;cursor:pointer;height:19px;margin:0 0 5px;padding:0;transition:opacity .3s ease;width:22px}.element__like:hover{opacity:.5}
 .element__like-area{align-items:center;display:flex;flex-direction:column;margin:0;padding:0}
 .element__like-counter{color:#000;font-size:13px;font-weight:400;line-height:16px;margin:0;padding:0}
-.element__like_active{background:url(e787eeb70bb65b7b453a.svg) no-repeat;border:none;cursor:pointer;height:19px;margin:0 20px 0 0;transition:opacity .3s ease;width:22px}
+.element__like_active{background:url(e787eeb70bb65b7b453a.svg) no-repeat;border:none;cursor:pointer;height:19px;margin:0 0 5px;padding:0;transition:opacity .3s ease;width:22px}
 .element__name{color:#000;font-size:24px;font-style:normal;font-weight:900;line-height:29px;margin:0;max-width:195px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:100%}
 .footer{flex-shrink:0;margin:67px 0 60px}@media screen and (max-width:768px){.footer{margin:48px 19px 36px}}
 .footer__description{color:#545454;font-size:18px;font-style:normal;font-weight:400;line-height:22px;margin:0}@media screen and (max-width:768px){.footer__description{font-size:14px;line-height:17px}}
