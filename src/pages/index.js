@@ -8,6 +8,7 @@ import {
     buttonOpenEditAvatarForm,
     profileForm,
     cardForm,
+    avatarForm,
     inputName,
     inputJob
 } from "../utils/constants.js";
@@ -32,8 +33,10 @@ const api = new Api({
 /*валидация*/
 const profileValidation = new FormValidator(validationConfig, profileForm);
 const newCardValidation = new FormValidator(validationConfig, cardForm);
+const avatarValidation = new FormValidator(validationConfig, avatarForm);
 profileValidation.enableValidationCheck();
 newCardValidation.enableValidationCheck();
+avatarValidation.enableValidationCheck();
 
 /*открытие кликом*/
 const openPopupImg = new PopupWithImage('.popup_viewImage');
@@ -101,11 +104,12 @@ buttonOpenAddCardForm.addEventListener('click', () => {
 
 /*открытие и редактирование аватара*/
 const popupEditeAvatar = new PopupWithForm('.popup_editUserAvatar', {
-    /*callbackSubmitForm: () => {
-        userInfo.setUserAvatar({
-        });
-        popupEditeAvatar.close();
-    }*/
+    callbackSubmitForm: (avatarValues) => {
+        renderCards.addItem(createCard({
+            link: avatarValues.link
+        }));
+        popupAddCard.close();
+    }
 });
 popupEditeAvatar.setEventListeners();
 
