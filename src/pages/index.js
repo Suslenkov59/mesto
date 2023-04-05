@@ -1,23 +1,33 @@
 import '../pages/index.css';
 
+import {
+    initialCards,
+    validationConfig,
+    buttonOpenEditProfileForm,
+    buttonOpenAddCardForm,
+    buttonOpenEditAvatarForm,
+    profileForm,
+    cardForm,
+    inputName,
+    inputJob
+} from "../utils/constants.js";
+
 import {FormValidator} from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import { Section } from '../components/Section.js';
-import { PopupWithImage } from '../components/PopupWithImage.js';
-import { PopupWithForm } from '../components/PopupWithForm.js';
-import { UserInfo } from '../components/UserInfo.js';
-import {initialCards, validationConfig} from "../utils/constants.js";
+import {Section} from '../components/Section.js';
+import {PopupWithImage} from '../components/PopupWithImage.js';
+import {PopupWithForm} from '../components/PopupWithForm.js';
+import {UserInfo} from '../components/UserInfo.js';
+import Api from '../components/Api'
 
-/*основные кнопки*/
-const buttonOpenEditProfileForm = document.querySelector('.profile__edit-button');
-const buttonOpenAddCardForm = document.querySelector('.profile__add-button');
-const buttonOpenEditAvatarForm = document.querySelector('.profile__avatar-button');
-
-/*формы*/
-const profileForm = document.forms["profile-form"];
-const cardForm = document.forms["card-form"];
-const inputName = profileForm.querySelector('.popup__input_type_name');
-const inputJob = profileForm.querySelector('.popup__input_type_job');
+/*Api*/
+const api = new Api({
+    url: 'https://mesto.nomoreparties.co/v1/cohort-62',
+    headers: {
+        authorization: 'ad4fae2f-d7ab-477d-ba24-14b2b213433b',
+        'Content-Type': 'application/json'
+    }
+})
 
 /*валидация*/
 const profileValidation = new FormValidator(validationConfig, profileForm);
