@@ -32,7 +32,7 @@ class PopupWithForm extends Popup {
     }
 
     /*возвращаю к прежнему состоянию*/
-    setSubmitAction() {
+    setDefaultButtonText() {
         this._saveButton.textContent = this._saveButtonText;
     }
 

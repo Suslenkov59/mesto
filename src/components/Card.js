@@ -37,32 +37,23 @@ export default class Card {
         this._elementImage.src = this._image;
         this._elementName.textContent = this._name;
         this._elementImage.alt = this._name;
-        this._handleLike(this._card);
+        this.handleLike(this._card);
         this._setEventListeners();
 
         return this._element;
     }
 
     /*удаление карточки*/
-    _handleDeleteCard() {
+    handleDeleteCard() {
         this._element.remove();
         this._element = null;
     }
 
     /*общий метод работы с лайками*/
-    _handleLike(card) {
+    handleLike(card) {
         this._likeArea = card.likes;
-        if (this._likeArea.length === 0) {
-            this.elementLikeCounter.textContent = '';
-        } else {
-            // Брать количество лайков из ответа сервера
-            this.elementLikeCounter.textContent = this._likeArea.length;
-        }
-        if (this._checkLike()) {
-            this._elementLike.classList.add('element__like_active');
-        } else {
-            this._elementLike.classList.toggle('element__like_active');
-        }
+        (this._likeArea.length === 0) ? this.elementLikeCounter.textContent = '' : this.elementLikeCounter.textContent = this._likeArea.length;
+        (this._checkLike()) ? this._elementLike.classList.add('element__like_active') : this._elementLike.classList.remove('element__like_active');
     }
 
     /*проверка лайка на фото*/

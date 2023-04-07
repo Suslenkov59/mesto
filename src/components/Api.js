@@ -12,44 +12,44 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`)
     }
 
+    _request(url, options) {
+        return fetch(url, options).then(this._checkResponse)
+    }
+
     /*инициализация карточек с сервера*/
     getInitialCards() {
-        return fetch(`${this._url}cards`, {
+        return this._request(`${this._url}cards`, {
             headers: this._headers
         })
-            .then(this._checkResponse)
     }
 
     /*добавление новой карочки*/
     addNewUserCard({ name, link }) {
-        return fetch(`${this._url}cards`, {
+        return this._request(`${this._url}cards`, {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({ name, link })
         })
-            .then(this._checkResponse)
     }
 
     /*удаление карточки*/
     deleteCard(cardId) {
-        return fetch(`${this._url}cards/${cardId}`, {
+        return this._request(`${this._url}cards/${cardId}`, {
             method: 'DELETE',
             headers: this._headers
         })
-            .then(this._checkResponse)
     }
 
     /*получение данных пользователя*/
     getUserInfo() {
-        return fetch(`${this._url}users/me`, {
+        return this._request(`${this._url}users/me`, {
             headers: this._headers
         })
-            .then(this._checkResponse)
     }
 
     /*отправка данных пользователя*/
     setUserInfoApi(userData) {
-        return fetch(`${this._url}users/me`, {
+        return this._request(`${this._url}users/me`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
@@ -57,37 +57,33 @@ class Api {
                 about: userData.job
             })
         })
-            .then(this._checkResponse)
     }
 
     /*обновление аватара*/
     sendUserAvatar(data) {
-        return fetch(`${this._url}users/me/avatar`, {
+        return this._request(`${this._url}users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
                 avatar: data.avatar,
             })
         })
-            .then(this._checkResponse)
     }
 
     /*лайк*/
     like(cardId) {
-        return fetch(`${this._url}cards/${cardId}/likes`, {
+        return this._request(`${this._url}cards/${cardId}/likes`, {
             method: 'PUT',
             headers: this._headers
         })
-            .then(this._checkResponse)
     }
 
     /*удаление лайка*/
     likeRemove(cardId) {
-        return fetch(`${this._url}cards/${cardId}/likes`, {
+        return this._request(`${this._url}cards/${cardId}/likes`, {
             method: 'DELETE',
             headers: this._headers
         })
-            .then(this._checkResponse)
     }
 
 }

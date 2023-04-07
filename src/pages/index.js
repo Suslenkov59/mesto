@@ -39,6 +39,26 @@ profileValidation.enableValidationCheck();
 newCardValidation.enableValidationCheck();
 avatarValidation.enableValidationCheck();
 
+/*const formValidators = {}
+
+// Включение валидации
+const enableValidation = (config) => {
+    const formList = Array.from(document.querySelectorAll(config.formSelector))
+    formList.forEach((formElement) => {
+        const validator = new FormValidator(formElement, config)
+// получаем данные из атрибута `name` у формы
+        const formName = formElement.getAttribute('name')
+
+        // вот тут в объект записываем под именем формы
+        formValidators['profile-form'] = validator;
+        validator.enableValidationCheck();
+    });
+};
+
+enableValidation(config);*/
+/*почти сутки сижу за работой, четсно пока не понял как это работает было бы интересно разобраться, но очень боюсь дедлйна, поэтому к сожалению пока оставлю свой рабочий вариант*/
+
+
 /*генерация карочек*/
 const createCard = (data) => {
     const card = new Card(data, '#elements-template', userId, {cardId: data._id, authorId: data.owner._id,}, {
@@ -54,7 +74,7 @@ const createCard = (data) => {
         handleCardLike: (cardId) => {
             api.like(cardId)
                 .then((res) => {
-                    card._handleLike(res);
+                    card.handleLike(res);
                 })
                 .catch((err) => {
                     console.log(`При лайке карточки возникла ошибка, ${err}`)
@@ -64,7 +84,7 @@ const createCard = (data) => {
         handleCardRemoveLike: (cardId) => {
             api.likeRemove(cardId)
                 .then((res) => {
-                    card._handleLike(res);
+                    card.handleLike(res);
                 })
                 .catch((err) => {
                     console.log(`При дизлайке карточки возникла ошибка, ${err}`)
@@ -113,13 +133,14 @@ const popupEditeProfile = new PopupWithForm('.popup_editUserData', {
                 console.log(`При редактировании профиля возникла ошибка, ${err}`)
             })
             .finally(() => {
-                popupEditeProfile.setSubmitAction();
+                popupEditeProfile.setDefaultButtonText();
             })
     }
 });
 popupEditeProfile.setEventListeners();
 
 buttonOpenEditProfileForm.addEventListener('click', () => {
+    /*formValidators[ profileForm.getAttribute('name') ].resetValidation()*/
     popupEditeProfile.open();
     const actualUserInfo = userInfo.getUserInfo();
     inputName.setAttribute('value', actualUserInfo.name);
@@ -139,14 +160,13 @@ const popupAddCard = new PopupWithForm('.popup_creatingCard', {
                 console.log(`При добавлении новой карточки возникла ошибка, ${err}`)
             })
             .finally(() => {
-                popupAddCard.setSubmitAction();
+                popupAddCard.setDefaultButtonText();
             })
     }
 });
 popupAddCard.setEventListeners();
 
 buttonOpenAddCardForm.addEventListener('click', () => {
-    cardForm.reset();
     newCardValidation.resetValidation();
     popupAddCard.open();
 });
@@ -164,14 +184,14 @@ const popupEditeAvatar = new PopupWithForm('.popup_editUserAvatar', {
                 console.log(`При обновлении аватара возникла ошибка, ${err}`)
             })
             .finally(() => {
-                popupEditeAvatar.setSubmitAction();
+                popupEditeAvatar.setDefaultButtonText();
             })
     }
 });
 popupEditeAvatar.setEventListeners();
 
 buttonOpenEditAvatarForm.addEventListener('click', () => {
-    avatarForm.reset();
+    avatarValidation.resetValidation();
     popupEditeAvatar.open();
 });
 
@@ -180,7 +200,7 @@ const popupCheckExit = new PopupCheckExit(".popup_checkExit", {
     callbackCheckExit: (cardElement, cardId) => {
         api.deleteCard(cardId)
             .then(() => {
-                cardElement._handleDeleteCard();
+                cardElement.handleDeleteCard();
                 popupCheckExit.close();
             })
             .catch((err) => {
